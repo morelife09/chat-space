@@ -28,8 +28,7 @@ Things you may want to cover:
 |------|----|-------|
 |id|integer|null: false|
 |name|string|null: false, unique: true|
-|email|string|null: false|
-|groups_id|integer|null: false, foreign_key: true|
+|email|string|null: false, primary_key: true|
 ### Association
 - has_many :groups, through: :groups_users
 - has_many :groups_users
@@ -40,28 +39,27 @@ Things you may want to cover:
 |------|----|-------|
 |id|integer|null: false|
 |name|string|null: false|
-|users_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :users
 - has_many :users, through: :groups_users
+- belongs_to :groups_users
 - has_many :messages
 
 ## groups_users table
 |Column|Type|Options|
 |------|----|-------|
-|users_id|integer|null: false, foreign_key: true|
-|groups_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 ### Association
-- has_many :users
-- has_many :groups
+- blongs_to :user
+- blongs_to :group
 
 ## messages table
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
-|image|string|null: false|
-|groups_id|integer|null: false, foreign_key: true|
-|users_id|integer|null: false, foreign_key: true|
+|body|text|
+|image|string|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 ### Association
-- blongs_to :users
-- belongs_to :groups
+- blongs_to :user
+- belongs_to :group
