@@ -26,47 +26,41 @@ Things you may want to cover:
 ## users table
 |Column|Type|Options|
 |------|----|-------|
-|name|string|index: true, null: false, unique: true|
+|id|integer|null: false|
+|name|string|null: false, unique: true|
 |email|string|null: false|
 ### Association
-- has_many :posts
-- has_many :comments
+- has_many :groups, through: :groups_users
+- has_many :groups_users
+- has_many :messages
 
-## posts table
+## groups table
 |Column|Type|Options|
 |------|----|-------|
-|title|text|null: false|
-|text|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|id|integer|null: false|
+|name|string|null: false|
+|users_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :user
-- has_many :comments
-- has_many :posts_tags
-- has_many :tags, through: :posts_tags
+- belongs_to :users
+- has_many :users, through: :groups_users
+- has_many :messages
 
-## tags table
+## groups_users table
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
+|users_id|integer|null: false, foreign_key: true|
+|groups_id|integer|null: false, foreign_key: true|
 ### Association
-- has_many :posts_tags
-- has_many :posts through: :posts_tags
+- has_many :users
+- has_many :groups
 
-## posts_tags table
+## messages table
 |Column|Type|Options|
 |------|----|-------|
-|post_id|integer|null: false, foreign_key: true|
-|tag_id|integer|null: false, foreign_key: true|
+|body|text|null: false|
+|image|string|null: false|
+|groups_id|integer|null: false, foreign_key: true|
+|users_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :post
-- belongs_to :tag
-
-## comments table
-| Column | Type | Option |
-|--------|------|--------|
-|text|text|null: false|
-|user_id|integer|null :false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :post
-- belongs_to :user
+- blongs_to :users
+- belongs_to :groups
