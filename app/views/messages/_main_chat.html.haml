@@ -1,0 +1,37 @@
+.main_chat
+  .main_header
+    .member_list
+      .list_name
+        test
+        .member
+          Member : junichi
+      .edit_btn
+        = link_to url: "#" do
+          Edit
+  .chat
+    .message_1
+      .poster_1
+        junichi
+      .date_1
+        2020/05/21(Thu) 21:00:00
+    .comment_1
+      こんばんは！
+    .message_2
+      .poster_2
+        junichi
+      .date_2
+        2020/05/21(Thu) 21:10:00
+    .comment_2
+      最近、梅雨で洗濯物が乾きません。。
+  .form
+    %form.new_message
+      .text
+        .input_box
+          %input{class: "input_text", placeholder: "type a message", type: "text"}
+          %label{class: "input_image"}
+            = icon('fas', 'image')
+            %input{type: "file", class: "image"}
+      .submit
+        .submit_btn
+          %input{class: "submit_btn", type: "submit", name: "commit", value: "Send"}
+      
