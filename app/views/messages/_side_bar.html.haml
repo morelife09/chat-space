@@ -2,16 +2,16 @@
   .side_header
     .user
       .name
-        junichi
-        .all_icon
-          .icon_1
-            = link_to url: "#" do
-              <i class='far fa-edit EDIT'></i>
-          .icon_2
-            = link_to url: "#" do
-              <i class="fas fa-cog COG"></i>
+        = current_user.name
+      .all_icon
+        .icon_1
+          = link_to "#", class: "EDIT" do
+            = icon('far', 'edit')
+        .icon_2
+          = link_to edit_user_path(current_user), class: "COG" do
+            = icon('fas', 'cog')
   .group_list
-    = link_to url: "#" do
+    = link_to "#" do
       .group_title
         techcamp
       .group_massege
