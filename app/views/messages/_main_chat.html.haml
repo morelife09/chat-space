@@ -1,37 +1,36 @@
-.main_chat
-  .main_header
-    .member_list
-      .list_name
+.main
+  .main__header
+    .main__header__group
+      .main__header__group__title
         test
-        .member
+        .main__header__group__title__member
           Member : junichi
-      .edit_btn
+      .main__header__group__edit-btn
         = link_to "#" do
           Edit
-  .chat
-    .message_1
-      .poster_1
+  .main__chats
+    .main__chats__message1
+      .main__chats__message1__poster1
         junichi
-      .date_1
+      .main__chats__message1__date1
         2020/05/21(Thu) 21:00:00
-    .comment_1
+    .main__chats__comment1
       こんばんは！
-    .message_2
-      .poster_2
+    .main__chats__message2
+      .main__chats__message2__poster2
         junichi
-      .date_2
+      .main__chats__message2__date2
         2020/05/21(Thu) 21:10:00
-    .comment_2
+    .main__chats__comment2
       最近、梅雨で洗濯物が乾きません。。
-  .form
-    %form.new_message
-      .text
-        .input_box
+  .main__form
+    %form.main__form__posts
+      .main__form__posts__text
+        .main__form__posts__text__input-box
           %input{class: "input_text", placeholder: "type a message", type: "text"}
           %label{class: "input_image"}
             = icon('fas', 'image')
             %input{class: "image", type: "file"}
-      .submit
-        .submit_btn
+      .main__form__posts__submit
+        .main__form__posts__submit__submit-btn
           %input{class: "submit_btn", type: "submit", name: "commit", value: "Send"}
-      

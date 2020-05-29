@@ -1,18 +1,20 @@
-.side_bar
-  .side_header
-    .user
-      .name
+.side
+  .side__header
+    .side__header__user
+      .side__header__user__name
         = current_user.name
-      .all_icon
-        .icon_1
-          = link_to "#", class: "EDIT" do
-            = icon('far', 'edit')
-        .icon_2
-          = link_to edit_user_path(current_user), class: "COG" do
-            = icon('fas', 'cog')
-  .group_list
-    = link_to "#" do
-      .group_title
-        techcamp
-      .group_massege
+      .side__header__user__icons
+        .side__header__user__icons__icon1
+          = link_to new_group_path,class: "side__header__user__icons__icons1__CREATE" do
+            = icon('far', 'edit', class: "CREATE")
+        .side__header__user__icons__icon2
+          = link_to edit_user_path(current_user) do
+            = icon('fas', 'cog', class: "EDIT")
+  .side__groups
+    - current_user.groups.each do |group|
+      .side__groups__titles
+        = link_to "#" do
+          .group__name
+            = group.name
+      .side__groups__notices
         まだメッセージがありません
