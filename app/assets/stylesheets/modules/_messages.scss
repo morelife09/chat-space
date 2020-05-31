@@ -101,9 +101,12 @@ a {
       display: flex;
 
       &__title {
-        font-size: 20px;
-        color: #333333;
         margin-top: 35px;
+
+        &__name {
+          color: #333333;
+          font-size: 20px;
+        }
 
         &__member {
           font-size: 12px;
@@ -139,47 +142,26 @@ a {
     padding-left: 40px;
     overflow: scroll;
 
-    &__message1 {
+    &__message {
       display: flex;
 
-      &__poster1 {
+      &__poster {
         font-size: 16px;
         color: #333333;
       }
 
-      &__date1 {
+      &__date {
         font-size: 12px;
         color: #999999;
         margin-left: 5px;
       }
     }
 
-    &__comment1 {
+    &__comment {
       font-size: 14px;
       color: #434A54;
       margin-top: 12px;
       margin-bottom: 46px;
-    }
-
-    &__message2 {
-      display: flex;
-
-      &__poster2 {
-        font-size: 16px;
-        color: #333333;
-      }
-
-      &__date2 {
-        font-size: 12px;
-        color: #999999;
-        margin-left: 5px;
-      }
-    }
-
-    &__comment2 {
-      font-size: 14px;
-      color: #434A54;
-      margin-top: 12px;
     }
   }
 
