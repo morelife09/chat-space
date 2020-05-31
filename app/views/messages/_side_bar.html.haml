@@ -5,7 +5,7 @@
         = current_user.name
       .side__header__user__icons
         .side__header__user__icons__icon1
-          = link_to new_group_path, class: "side__header__user__icons__icons1__CREATE" do
+          = link_to new_group_path,class: "side__header__user__icons__icons1__CREATE" do
             = icon('far', 'edit', class: "CREATE")
         .side__header__user__icons__icon2
           = link_to edit_user_path(current_user) do
@@ -13,8 +13,8 @@
   .side__groups
     - current_user.groups.each do |group|
       .side__groups__titles
-        = link_to group_messages_path(group) do
+        = link_to "#" do
           .group__name
             = group.name
       .side__groups__notices
-        = group.show_last_message
+        まだメッセージがありません

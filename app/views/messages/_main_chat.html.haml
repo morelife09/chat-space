@@ -2,27 +2,35 @@
   .main__header
     .main__header__group
       .main__header__group__title
-        .main__header__group__title__name
-          = @group.name
+        test
         .main__header__group__title__member
-          Member :
-          - @group.users.each do |n|
-            = n.name
+          Member : junichi
       .main__header__group__edit-btn
-        = link_to edit_group_path(@group), class: "edit-btn" do
+        = link_to "#" do
           Edit
-
-
   .main__chats
-    = render @messages
-
+    .main__chats__message1
+      .main__chats__message1__poster1
+        junichi
+      .main__chats__message1__date1
+        2020/05/21(Thu) 21:00:00
+    .main__chats__comment1
+      こんばんは！
+    .main__chats__message2
+      .main__chats__message2__poster2
+        junichi
+      .main__chats__message2__date2
+        2020/05/21(Thu) 21:10:00
+    .main__chats__comment2
+      最近、梅雨で洗濯物が乾きません。。
   .main__form
-    = form_for [@group, @message], html: { class: "main__form__posts" } do |f| 
+    %form.main__form__posts
       .main__form__posts__text
         .main__form__posts__text__input-box
-          = f.text_field :content, class: 'input_text', placeholder: 'type a message'
-          = f.label :image, class: 'input_image' do
+          %input{class: "input_text", placeholder: "type a message", type: "text"}
+          %label{class: "input_image"}
             = icon('fas', 'image')
-            = f.file_field :image, class: 'image'
+            %input{class: "image", type: "file"}
       .main__form__posts__submit
-        = f.submit 'Send', class: 'submit_btn'
+        .main__form__posts__submit__submit-btn
+          %input{class: "submit_btn", type: "submit", name: "commit", value: "Send"}
