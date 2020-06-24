@@ -15,6 +15,7 @@ a {
 
 .side {
   background-color: #2f3e51;
+  height: 100%;
   width: 300px;
 
   &__header {
@@ -65,15 +66,21 @@ a {
   }
 
   &__groups {
-    height: 91px;
+    height: calc( 100% - 100px);
     width: 260px;
     align-items: center;
     margin: 0 auto;
+    margin-bottom: 40px;
+
+    .group{
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
 
     &__titles {
       font-size: 15px bold;
       color: #ffffff;
-      margin-top: 20px;
+      // margin-top: 20px;
       margin-bottom: 5px;
       text-decoration: none;
     }

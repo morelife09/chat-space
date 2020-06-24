@@ -12,9 +12,10 @@
             = icon('fas', 'cog', class: "EDIT")
   .side__groups
     - current_user.groups.each do |group|
-      .side__groups__titles
-        = link_to group_messages_path(group) do
-          .group__name
-            = group.name
-      .side__groups__notices
-        = group.show_last_message
+      .group
+        .side__groups__titles
+          = link_to group_messages_path(group) do
+            .side__groups__titles__name
+              = group.name
+        .side__groups__notices
+          = group.show_last_message
